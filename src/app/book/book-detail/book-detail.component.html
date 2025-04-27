@@ -1,0 +1,8 @@
+<div *ngIf="book">
+  <img [src]="book.imageUrl" alt="{{ book.title }}" />
+  <h2>{{ book.title }}</h2>
+  <p><strong>Author:</strong> {{ book.author }}</p>
+  <p><strong>Genre:</strong> {{ book.genre }}</p>
+  <p><strong>Year:</strong> {{ book.year }}</p>
+  <p>{{ book.description }}</p>
+</div>

@@ -1,0 +1,30 @@
+.book-detail-container {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  
+  .book-detail-image {
+    width: 160px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .book-detail-info {
+    flex: 1;
+  }
+  
+  .book-detail-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #34495e;
+    margin-bottom: 1rem;
+  }
+  
+  .book-detail-meta {
+    font-size: 1rem;
+    color: #7f8c8d;
+    margin: 0.5rem 0;
+  }
+  

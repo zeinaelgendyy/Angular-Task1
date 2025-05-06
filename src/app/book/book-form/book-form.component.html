@@ -1,0 +1,74 @@
+<div class="form-wrapper">
+  <div class="form-card">
+    <h2 class="form-title">
+      {{ isEditMode ? 'Edit Book' : 'Add New Book' }}
+    </h2>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input id="title" formControlName="title" placeholder="Enter book title" />
+          <small class="error" *ngIf="form.get('title')?.invalid && form.get('title')?.touched">
+            Title is required.
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label for="author">Author</label>
+          <input id="author" formControlName="author" placeholder="Enter author name" />
+          <small class="error" *ngIf="form.get('author')?.invalid && form.get('author')?.touched">
+            Author is required.
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label for="genre">Genre</label>
+          <input id="genre" formControlName="genre" placeholder="e.g. Fantasy, Drama" />
+          <small class="error" *ngIf="form.get('genre')?.invalid && form.get('genre')?.touched">
+            Genre is required.
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label for="year">Year</label>
+          <input id="year" formControlName="year" placeholder="YYYY" />
+          <small class="error" *ngIf="form.get('year')?.invalid && form.get('year')?.touched">
+            Enter a valid 4-digit year.
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label for="price">Price (USD)</label>
+          <input id="price" formControlName="price" placeholder="0.00" />
+          <small class="error" *ngIf="form.get('price')?.invalid && form.get('price')?.touched">
+            Price must be zero or more.
+          </small>
+        </div>
+
+        <div class="form-group full-width">
+          <label for="imageUrl">Image URL</label>
+          <input id="imageUrl" formControlName="imageUrl" placeholder="https://..." />
+          <small class="error" *ngIf="form.get('imageUrl')?.invalid && form.get('imageUrl')?.touched">
+            Image URL is required.
+          </small>
+        </div>
+
+        <div class="form-group full-width">
+          <label for="description">Description</label>
+          <textarea id="description" formControlName="description" placeholder="Brief description"></textarea>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" [disabled]="form.invalid">
+          {{ isEditMode ? 'Update Book' : 'Add Book' }}
+        </button>
+
+        <button *ngIf="isEditMode" type="button" class="btn-delete" (click)="onDelete()">
+          Delete Book
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,8 +1,23 @@
-<div *ngIf="book">
-  <img [src]="book.imageUrl" alt="{{ book.title }}" />
-  <h2>{{ book.title }}</h2>
-  <p><strong>Author:</strong> {{ book.author }}</p>
-  <p><strong>Genre:</strong> {{ book.genre }}</p>
-  <p><strong>Year:</strong> {{ book.year }}</p>
-  <p>{{ book.description }}</p>
-</div>
+<ng-container *ngIf="book; else loading">
+  <div class="book-card">
+    <div class="book-image-wrapper">
+      <img [src]="book.imageUrl" [alt]="book.title" class="book-image" />
+    </div>
+    <div class="book-info">
+      <h1 class="book-title">{{ book.title | bestseller }}</h1>
+      <p class="book-author">by {{ book.author }}</p>
+
+      <div class="book-meta">
+        <span class="chip">{{ book.genre }}</span>
+        <span class="chip">{{ book.year }}</span>
+        <span class="chip price">{{ book.price | currency:'USD' }}</span>
+      </div>
+
+      <p class="book-description">{{ book.description }}</p>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #loading>
+  <div class="loading">📚 Loading book details...</div>
+</ng-template>

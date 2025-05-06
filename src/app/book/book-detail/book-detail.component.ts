@@ -4,11 +4,13 @@ import { BookService } from '../book.service';
 import { Book } from '../book.model';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { switchMap, map } from 'rxjs/operators';
+import { BestsellerPipe } from '../bestseller.pipe'; 
 
 @Component({
   selector: 'app-book-detail',
   standalone: true,
-  imports: [ RouterModule, CommonModule],
+  imports: [RouterModule, CommonModule, BestsellerPipe], 
   templateUrl: './book-detail.component.html',
   styleUrl: './book-detail.component.css'
 })
@@ -18,8 +20,11 @@ export class BookDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute, private bookService: BookService) {}
 
   ngOnInit(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.book = this.bookService.getBookById(id);
+    this.route.paramMap.pipe(
+      map(params => Number(params.get('id'))),
+      switchMap(id => this.bookService.getBookById(id))
+    ).subscribe(result => {
+      this.book = result;
+    });
   }
 }
-

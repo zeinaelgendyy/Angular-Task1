@@ -1,6 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { BookDetailComponent } from './book-detail.component';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
+
+
+const activatedRouteMock = {
+  snapshot: { paramMap: { get: () => '1' } },
+  params: of({ id: '1' })
+};
 
 describe('BookDetailComponent', () => {
   let component: BookDetailComponent;
@@ -8,7 +15,10 @@ describe('BookDetailComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BookDetailComponent]
+      declarations: [BookDetailComponent],
+      providers: [
+        { provide: ActivatedRoute, useValue: activatedRouteMock }
+      ]
     })
     .compileComponents();
 

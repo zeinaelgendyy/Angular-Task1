@@ -72,6 +72,9 @@
   .form-actions {
     margin-top: 2rem;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 15px; 
   }
   
   .form-actions button {
@@ -92,5 +95,13 @@
   
   .form-actions button:hover:not(:disabled) {
     background: #4a8ac2;
+  }
+
+  .btn-delete {
+    background-color: #e74c3c; 
+  }
+  
+  .btn-delete:hover {
+    background-color: #c0392b; 
   }
   

@@ -18,11 +18,21 @@ export class BookListComponent implements OnInit {
   isLoading = true;
 
   constructor(private bookService: BookService, private router: Router) {}
-
+  
   ngOnInit(): void {
-    this.bookService.getBooks().subscribe((data) => {
-      this.books = data;
-      this.isLoading = false;
+    this.loadBooks(); 
+  }
+
+  loadBooks(): void {
+    this.bookService.getBooks().subscribe({
+      next: (data) => {
+        this.books = data;
+        this.isLoading = false;
+      },
+      error: (err) => {
+        console.error('Failed to load books:', err);
+        this.isLoading = false;
+      }
     });
   }
 
@@ -40,5 +50,21 @@ export class BookListComponent implements OnInit {
 
   onEdit(book: Book): void {
     this.router.navigate(['/books/edit', book.id]);
+  }
+
+  onDelete(bookId: number): void {
+    console.log('Delete triggered for book ID:', bookId); 
+  
+    if (confirm('Are you sure you want to delete this book?')) {
+      this.bookService.deleteBook(bookId).subscribe({
+        next: () => {
+          console.log('Book deleted successfully');
+          this.loadBooks();  
+        },
+        error: (err) => {
+          console.error('Failed to delete book:', err); 
+        }
+      });
+    }
   }
 }

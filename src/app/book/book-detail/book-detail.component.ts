@@ -23,8 +23,9 @@ export class BookDetailComponent implements OnInit {
     this.route.paramMap.pipe(
       map(params => Number(params.get('id'))),
       switchMap(id => this.bookService.getBookById(id))
-    ).subscribe(result => {
-      this.book = result;
+    ).subscribe({ 
+      next: result => this.book = result,
+      error: () => this.book = undefined
     });
   }
 }

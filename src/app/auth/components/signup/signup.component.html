@@ -1,0 +1,45 @@
+<div class="auth-container">
+  <h2>Create Your Account 🎉</h2>
+  <form #signupForm="ngForm" (ngSubmit)="onSignup()">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input
+        id="username"
+        name="username"
+        [(ngModel)]="username"
+        required
+        #usernameField="ngModel"
+      />
+      <div class="error-message" *ngIf="usernameField.invalid && usernameField.touched">
+        Username is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        id="password"
+        type="password"
+        name="password"
+        [(ngModel)]="password"
+        required
+        #passwordField="ngModel"
+      />
+      <div class="error-message" *ngIf="passwordField.invalid && passwordField.touched">
+        Password is required.
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      [disabled]="signupForm.invalid"
+      [class.disabled-btn]="signupForm.invalid"
+    >
+      Sign Up
+    </button>
+  </form>
+
+  <p class="form-footer">
+    Already have an account? <a routerLink="/auth/login">Log in here</a>
+  </p>
+</div>

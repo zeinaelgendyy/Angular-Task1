@@ -1,0 +1,15 @@
+<!-- Header bar only when not on auth routes -->
+<header class="app-header" *ngIf="!isAuthPage">
+  <div class="logo">
+    <span class="logo-emoji">📚</span>
+    <span class="app-title">BookWorm</span>
+  </div>
+  <button class="signout-btn" (click)="signOut()">Sign Out</button>
+</header>
+
+<!-- Always visible -->
+<div class="header-image">
+  <img src="assets/images/shelf3.jpg" alt="Book Shelf">
+</div>
+
+<h1><span>📚</span> Book App <span>📚</span></h1>

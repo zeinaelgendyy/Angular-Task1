@@ -1,22 +1,15 @@
 import { Component } from '@angular/core';
-import { RouterOutlet, Router } from '@angular/router';
-import { HeaderComponent } from './header/header.component';
+import { RouterOutlet } from '@angular/router';
+import { SharedModule } from './shared/shared.module';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, CommonModule],
+  imports: [RouterOutlet, CommonModule, SharedModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'book-app';
-
-  constructor(private router: Router) {}
-
-  shouldShowHeader(): boolean {
-    console.log(this.router.url);
-    return this.router.url !== '/login';
-  }
 }

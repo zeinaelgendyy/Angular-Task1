@@ -4,9 +4,9 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'; 
 
-import { BookListComponent } from './book-list/book-list.component';
-import { BookDetailComponent } from './book-detail/book-detail.component';
-import { BookFormComponent } from './book-form/book-form.component';
+import { BookListComponent } from './components/book-list/book-list.component';
+import { BookDetailComponent } from './components/book-detail/book-detail.component';
+import { BookFormComponent } from './components/book-form/book-form.component';
 
 import { bookRoutes } from './book.routes';
 
@@ -18,7 +18,7 @@ import { bookRoutes } from './book.routes';
     ReactiveFormsModule,
     BookListComponent,      
     BookDetailComponent,
-    BookFormComponent,  
+    BookFormComponent, 
   ]
 })
 export class BookModule {}

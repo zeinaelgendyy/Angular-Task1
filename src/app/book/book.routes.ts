@@ -1,11 +1,11 @@
 import { Routes } from '@angular/router';
-import { BookListComponent } from './book-list/book-list.component';
-import { BookDetailComponent } from './book-detail/book-detail.component';
-import { authGuard } from '../auth/auth.guard';
+import { BookListComponent } from './components/book-list/book-list.component';
+import { BookDetailComponent } from './components/book-detail/book-detail.component';
+import { authGuard } from '../auth/guards/auth.guard';
 
 export const bookRoutes: Routes = [
-  { path: '', component: BookListComponent, canActivate: [authGuard] },
-  { path: 'add', loadComponent: () => import('./book-form/book-form.component').then(m => m.BookFormComponent), canActivate: [authGuard] },
-  { path: 'edit/:id', loadComponent: () => import('./book-form/book-form.component').then(m => m.BookFormComponent), canActivate: [authGuard] },
-  { path: ':id', component: BookDetailComponent, canActivate: [authGuard] },
+  { path: '', component: BookListComponent },
+  { path: 'add', loadComponent: () => import('./components/book-form/book-form.component').then(m => m.BookFormComponent) },
+  { path: 'edit/:id', loadComponent: () => import('./components/book-form/book-form.component').then(m => m.BookFormComponent) },
+  { path: ':id', component: BookDetailComponent },
 ];

@@ -4,11 +4,11 @@
       "id": "1",
       "title": "The Hobbit",
       "author": "J.R.R. Tolkien",
-      "description": "In J.R.R. Tolkiens The Hobbit, Bilbo Baggins, a peaceful hobbit, is swept into an unexpected adventure by the wizard Gandalf and a company of dwarves. Their quest: to reclaim their treasure from the dragon Smaug in the Lonely Mountain. Along their perilous journey, Bilbo faces trolls, goblins, and giant spiders, and he acquires a mysterious ring that grants invisibility. His courage grows as he navigates these dangers, culminating in the epic Battle of Five Armies. Returning home, Bilbo is forever changed by his experiences and the secrets of the ring he now possesses.",
       "genre": "Fantasy",
-      "imageUrl": "assets/images/the-hobbit.jpg",
       "year": 1937,
-      "price": 4
+      "price": "5",
+      "imageUrl": "assets/images/the-hobbit.jpg",
+      "description": "In J.R.R. Tolkiens The Hobbit, Bilbo Baggins, a peaceful hobbit, is swept into an unexpected adventure by the wizard Gandalf and a company of dwarves. Their quest: to reclaim their treasure from the dragon Smaug in the Lonely Mountain. Along their perilous journey, Bilbo faces trolls, goblins, and giant spiders, and he acquires a mysterious ring that grants invisibility. His courage grows as he navigates these dangers, culminating in the epic Battle of Five Armies. Returning home, Bilbo is forever changed by his experiences and the secrets of the ring he now possesses."
     },
     {
       "id": "2",

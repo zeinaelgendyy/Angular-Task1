@@ -6,66 +6,119 @@
 
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="form-grid">
+
         <div class="form-group">
           <label for="title">Title</label>
-          <input id="title" formControlName="title" placeholder="Enter book title" />
-          <small class="error" *ngIf="form.get('title')?.invalid && form.get('title')?.touched">
+          <input
+            id="title"
+            formControlName="title"
+            placeholder="Enter book title"
+            [attr.aria-invalid]="form.get('title')?.invalid && form.get('title')?.touched"
+            aria-describedby="title-error"
+          />
+          <small class="error" id="title-error" *ngIf="form.get('title')?.invalid && form.get('title')?.touched">
             Title is required.
           </small>
         </div>
 
         <div class="form-group">
           <label for="author">Author</label>
-          <input id="author" formControlName="author" placeholder="Enter author name" />
-          <small class="error" *ngIf="form.get('author')?.invalid && form.get('author')?.touched">
+          <input
+            id="author"
+            formControlName="author"
+            placeholder="Enter author name"
+            [attr.aria-invalid]="form.get('author')?.invalid && form.get('author')?.touched"
+            aria-describedby="author-error"
+          />
+          <small class="error" id="author-error" *ngIf="form.get('author')?.invalid && form.get('author')?.touched">
             Author is required.
           </small>
         </div>
 
         <div class="form-group">
           <label for="genre">Genre</label>
-          <input id="genre" formControlName="genre" placeholder="e.g. Fantasy, Drama" />
-          <small class="error" *ngIf="form.get('genre')?.invalid && form.get('genre')?.touched">
+          <input
+            id="genre"
+            formControlName="genre"
+            placeholder="e.g. Fantasy, Drama"
+            [attr.aria-invalid]="form.get('genre')?.invalid && form.get('genre')?.touched"
+            aria-describedby="genre-error"
+          />
+          <small class="error" id="genre-error" *ngIf="form.get('genre')?.invalid && form.get('genre')?.touched">
             Genre is required.
           </small>
         </div>
 
         <div class="form-group">
           <label for="year">Year</label>
-          <input id="year" formControlName="year" placeholder="YYYY" />
-          <small class="error" *ngIf="form.get('year')?.invalid && form.get('year')?.touched">
+          <input
+            type="number"
+            id="year"
+            formControlName="year"
+            placeholder="YYYY"
+            [attr.aria-invalid]="form.get('year')?.invalid && form.get('year')?.touched"
+            aria-describedby="year-error"
+          />
+          <small class="error" id="year-error" *ngIf="form.get('year')?.invalid && form.get('year')?.touched">
             Enter a valid 4-digit year.
           </small>
         </div>
 
         <div class="form-group">
           <label for="price">Price (USD)</label>
-          <input id="price" formControlName="price" placeholder="0.00" />
-          <small class="error" *ngIf="form.get('price')?.invalid && form.get('price')?.touched">
-            Price must be zero or more.
+          <input
+            type="number"
+            step="0.01"
+            id="price"
+            formControlName="price"
+            placeholder="0.00"
+            [attr.aria-invalid]="form.get('price')?.invalid && form.get('price')?.touched"
+            aria-describedby="price-error"
+          />
+          <small class="error" id="price-error" *ngIf="form.get('price')?.invalid && form.get('price')?.touched">
+            Price must be zero or more and a valid number.
           </small>
         </div>
 
         <div class="form-group full-width">
           <label for="imageUrl">Image URL</label>
-          <input id="imageUrl" formControlName="imageUrl" placeholder="https://..." />
-          <small class="error" *ngIf="form.get('imageUrl')?.invalid && form.get('imageUrl')?.touched">
+          <input
+            id="imageUrl"
+            formControlName="imageUrl"
+            placeholder="https://..."
+            [attr.aria-invalid]="form.get('imageUrl')?.invalid && form.get('imageUrl')?.touched"
+            aria-describedby="imageUrl-error"
+          />
+          <small class="error" id="imageUrl-error" *ngIf="form.get('imageUrl')?.invalid && form.get('imageUrl')?.touched">
             Image URL is required.
           </small>
         </div>
 
         <div class="form-group full-width">
           <label for="description">Description</label>
-          <textarea id="description" formControlName="description" placeholder="Brief description"></textarea>
+          <textarea
+            id="description"
+            formControlName="description"
+            placeholder="Brief description"
+          ></textarea>
         </div>
       </div>
 
       <div class="form-actions">
-        <button type="submit" [disabled]="form.invalid">
+        <button
+          type="submit"
+          [disabled]="form.invalid"
+          [attr.aria-disabled]="form.invalid"
+        >
           {{ isEditMode ? 'Update Book' : 'Add Book' }}
         </button>
 
-        <button *ngIf="isEditMode" type="button" class="btn-delete" (click)="onDelete()">
+        <button
+          *ngIf="isEditMode"
+          type="button"
+          class="btn-delete"
+          (click)="onDelete()"
+        >
           Delete Book
         </button>
       </div>

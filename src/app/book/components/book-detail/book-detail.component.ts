@@ -12,13 +12,14 @@ import { BestsellerPipe } from '../../pipes/bestseller.pipe';
   standalone: true,
   imports: [RouterModule, CommonModule, BestsellerPipe],
   templateUrl: './book-detail.component.html',
-  styleUrl: './book-detail.component.css'
+  styleUrls: ['./book-detail.component.css'], // corrected property name
 })
 export class BookDetailComponent implements OnInit {
   /** The book to display */
   book?: Book;
 
   constructor(private route: ActivatedRoute, private bookService: BookService) {}
+
   /**
    * Lifecycle hook to fetch the book by ID from route params
    */
@@ -27,7 +28,7 @@ export class BookDetailComponent implements OnInit {
       map(params => Number(params.get('id'))),
       switchMap(id => this.bookService.getBookById(id))
     ).subscribe({
-      next: result => this.book = result,
+      next: (result) => this.book = result,
       error: () => this.book = undefined
     });
   }

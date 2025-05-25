@@ -27,6 +27,11 @@ h2::after {
   border-radius: 2px;
 }
 
+.actions-bar {
+  text-align: right;
+  margin-bottom: 1rem;
+}
+
 .loading-message {
   text-align: center;
   font-size: 1.2rem;
@@ -96,7 +101,7 @@ h2::after {
   font-weight: 500;
   line-height: 1.8;
   box-sizing: border-box;
-  z-index: 1; 
+  z-index: 1;
 }
 
 .book-card:hover .book-hover-details {
@@ -105,7 +110,7 @@ h2::after {
 
 .book-content {
   padding: 1rem;
-  z-index: 2; 
+  z-index: 2;
 }
 
 .book-title {
@@ -126,8 +131,8 @@ h2::after {
   gap: 0.5rem;
   margin-top: 1rem;
   flex-wrap: wrap;
-  position: relative; 
-  z-index: 3; 
+  position: relative;
+  z-index: 3;
 }
 
 .btn-modern {
@@ -162,7 +167,7 @@ h2::after {
 }
 
 .btn-delete {
-  background-color: #F87171; 
+  background-color: #F87171;
   color: #fff;
   padding: 0.5rem 1.2rem;
   font-size: 0.95rem;
@@ -175,7 +180,7 @@ h2::after {
 }
 
 .btn-delete:hover {
-  background-color: #EF4444; 
+  background-color: #EF4444;
   color: #fff;
 }
 

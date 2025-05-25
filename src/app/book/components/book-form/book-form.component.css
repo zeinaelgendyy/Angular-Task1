@@ -1,107 +1,106 @@
 .form-wrapper {
-    display: flex;
-    justify-content: center;
-    padding: 2rem 1rem;
-    background: #f5f7fa;
-    min-height: calc(100vh - 100px);
-  }
-  
-  .form-card {
-    background: #ffffff;
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 600px;
-  }
-  
-  .form-title {
-    margin-bottom: 1.5rem;
-    font-size: 1.75rem;
-    text-align: center;
-    color: #333;
-  }
-  
-  .form-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1rem;
-  }
-  
-  .form-group {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .full-width {
-    grid-column: 1 / -1;
-  }
-  
-  .form-group label {
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-    color: #555;
-  }
-  
-  .form-group input,
-  .form-group textarea {
-    padding: 0.75rem 1rem;
-    border: 1px solid #ddd;
-    border-radius: 0.5rem;
-    font-size: 1rem;
-    transition: border-color 0.2s;
-  }
-  
-  .form-group input:focus,
-  .form-group textarea:focus {
-    border-color: #5b9bd5;
-    outline: none;
-  }
-  
-  .form-group textarea {
-    min-height: 100px;
-    resize: vertical;
-  }
-  
-  .error {
-    margin-top: 0.25rem;
-    font-size: 0.875rem;
-    color: #e74c3c;
-  }
-  
-  .form-actions {
-    margin-top: 2rem;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    gap: 15px; 
-  }
-  
-  .form-actions button {
-    background: #5b9bd5;
-    color: #fff;
-    padding: 0.75rem 2rem;
-    border: none;
-    border-radius: 0.75rem;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
-  
-  .form-actions button:disabled {
-    background: #aaccee;
-    cursor: not-allowed;
-  }
-  
-  .form-actions button:hover:not(:disabled) {
-    background: #4a8ac2;
-  }
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem;
+  background: #f5f7fa;
+  min-height: calc(100vh - 100px);
+}
 
-  .btn-delete {
-    background-color: #e74c3c; 
-  }
-  
-  .btn-delete:hover {
-    background-color: #c0392b; 
-  }
-  
+.form-card {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+}
+
+.form-title {
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+  text-align: center;
+  color: #333;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #555;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #5b9bd5;
+  outline: none;
+}
+
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.error {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: #e74c3c;
+}
+
+.form-actions {
+  margin-top: 2rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.form-actions button {
+  background: #5b9bd5;
+  color: #fff;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.form-actions button:disabled {
+  background: #aaccee;
+  cursor: not-allowed;
+}
+
+.form-actions button:hover:not(:disabled) {
+  background: #4a8ac2;
+}
+
+.btn-delete {
+  background-color: #e74c3c;
+}
+
+.btn-delete:hover {
+  background-color: #c0392b;
+}

@@ -13,13 +13,8 @@ import { Book } from '../../book.model';
   styleUrls: ['./book-form.component.css']
 })
 export class BookFormComponent implements OnInit {
-  /** Reactive form for book data */
   form!: FormGroup;
-
-  /** Whether the form is in edit mode */
   isEditMode = false;
-
-  /** ID of the book being edited */
   private bookId!: number;
 
   fb = inject(FormBuilder);
@@ -27,16 +22,13 @@ export class BookFormComponent implements OnInit {
   router = inject(Router);
   bookService = inject(BookService);
 
-  /**
-   * Initializes form and loads book data if editing
-   */
   ngOnInit(): void {
     this.form = this.fb.group({
       title: ['', Validators.required],
       author: ['', Validators.required],
       genre: ['', Validators.required],
       year: ['', [Validators.required, Validators.pattern(/^\d{4}$/)]],
-      price: ['', [Validators.required, Validators.min(0)]],
+      price: ['', [Validators.required, Validators.pattern(/^\d+(\.\d{1,2})?$/)]],
       imageUrl: ['', Validators.required],
       description: ['']
     });
@@ -51,13 +43,16 @@ export class BookFormComponent implements OnInit {
     }
   }
 
-  /**
-   * Handles form submission for creating or updating a book.
-   */
   onSubmit(): void {
     if (this.form.invalid) return;
 
-    const book: Book = { id: this.bookId, ...this.form.value };
+    const formValue = this.form.value;
+    const book: Book = {
+      id: this.bookId,
+      ...formValue,
+      year: Number(formValue.year),
+      price: Number(formValue.price)
+    };
 
     const obs = this.isEditMode
       ? this.bookService.updateBook(book)
@@ -66,9 +61,6 @@ export class BookFormComponent implements OnInit {
     obs.subscribe(() => this.router.navigate(['/books']));
   }
 
-  /**
-   * Deletes the current book 
-   */
   onDelete(): void {
     if (this.isEditMode && this.bookId) {
       this.bookService.deleteBook(this.bookId).subscribe(() => {

@@ -1,15 +1,26 @@
 <!-- Header bar only when not on auth routes -->
-<header class="app-header" *ngIf="!isAuthPage">
+<header class="app-header" role="banner" *ngIf="!isAuthPage" aria-label="Main site header">
   <div class="logo">
-    <span class="logo-emoji">📚</span>
+    <span class="logo-emoji" aria-hidden="true">📚</span>
     <span class="app-title">BookWorm</span>
   </div>
-  <button class="signout-btn" (click)="signOut()">Sign Out</button>
+  <button 
+    class="signout-btn" 
+    (click)="signOut()" 
+    aria-label="Sign out and log out of your account"
+    type="button"
+  >
+    Sign Out
+  </button>
 </header>
 
 <!-- Always visible -->
-<div class="header-image">
-  <img src="assets/images/shelf3.jpg" alt="Book Shelf">
+<div class="header-image" role="img" aria-label="Bookshelf with various books on shelves">
+  <img src="assets/images/shelf3.jpg" alt="" aria-hidden="true" />
 </div>
 
-<h1><span>📚</span> Book App <span>📚</span></h1>
+<h1>
+  <span aria-hidden="true">📚</span> 
+  Book App 
+  <span aria-hidden="true">📚</span>
+</h1>

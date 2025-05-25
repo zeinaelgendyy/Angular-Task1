@@ -1,6 +1,6 @@
-<h2 style="text-align: center;">Book Library</h2>
+<h2>Book Library</h2>
 
-<div style="text-align: right; margin-bottom: 1rem;">
+<div class="actions-bar">
   <button class="add-book-btn" (click)="onAdd()">Add Book</button>
 </div>
 
@@ -8,7 +8,7 @@
   <p>Loading books...</p>
 </div>
 
-<div class="book-list" *ngIf="!isLoading">
+<div class="book-list" *ngIf="!isLoading && books.length > 0">
   <div class="book-card" *ngFor="let book of books">
     <img class="book-image" [src]="book.imageUrl" [alt]="book.title" />
 
@@ -28,19 +28,24 @@
       <div class="action-buttons">
         <button class="btn-modern btn-view" (click)="openDetails(book)">View Details</button>
         <button class="btn-modern btn-edit" (click)="onEdit(book)">Edit</button>
-        <button class="btn-modern btn-delete" (click)="onDelete(book.id)">Delete</button> <!-- Add Delete Button -->
+        <button class="btn-modern btn-delete" (click)="onDelete(book.id)">Delete</button>
       </div>
     </div>
   </div>
 </div>
 
+<div *ngIf="!isLoading && books.length === 0" class="loading-message">
+  <p>No books available.</p>
+</div>
+
+<!-- Modal for Book Details -->
 <div class="modal-backdrop" *ngIf="selectedBook" (click)="closeDetails()"></div>
-<div class="modal" *ngIf="selectedBook">
+<div class="modal" *ngIf="selectedBook" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc">
   <div class="modal-content">
-    <span class="close" (click)="closeDetails()">&times;</span>
+    <span class="close" (click)="closeDetails()" role="button" aria-label="Close">&times;</span>
     <img class="modal-image" [src]="selectedBook.imageUrl" [alt]="selectedBook.title" />
-    <h2>{{ selectedBook.title | uppercase | bestseller }}</h2>
-    <p><strong>Author:</strong> {{ selectedBook.author }}</p>
+    <h2 id="modalTitle">{{ selectedBook.title | uppercase | bestseller }}</h2>
+    <p id="modalDesc"><strong>Author:</strong> {{ selectedBook.author }}</p>
     <p><strong>Genre:</strong> {{ selectedBook.genre }}</p>
     <p><strong>Year:</strong> {{ selectedBook.year }}</p>
     <p><strong>Price:</strong> {{ selectedBook.price | currency:'USD' }}</p>

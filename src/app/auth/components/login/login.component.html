@@ -1,16 +1,27 @@
-<div class="auth-container">
-  <h2>Welcome Back 👋</h2>
-  <form #loginForm="ngForm" (ngSubmit)="onLogin()">
+<div class="auth-container" role="main" aria-label="Login form">
+  <h1 tabindex="0">Welcome Back 👋</h1>
+  <form #loginForm="ngForm" (ngSubmit)="onLogin()" novalidate aria-describedby="login-error">
+    
     <div class="form-group">
       <label for="username">Username</label>
       <input
         id="username"
         name="username"
+        type="text"
         [(ngModel)]="username"
         required
+        aria-required="true"
+        [attr.aria-invalid]="usernameField.invalid && usernameField.touched ? 'true' : 'false'"
+        aria-describedby="username-error"
         #usernameField="ngModel"
       />
-      <div class="error-message" *ngIf="usernameField.invalid && usernameField.touched">
+      <div
+        id="username-error"
+        class="error-message"
+        *ngIf="usernameField.invalid && usernameField.touched"
+        role="alert"
+        aria-live="assertive"
+      >
         Username is required.
       </div>
     </div>
@@ -23,9 +34,18 @@
         name="password"
         [(ngModel)]="password"
         required
+        aria-required="true"
+        [attr.aria-invalid]="passwordField.invalid && passwordField.touched ? 'true' : 'false'"
+        aria-describedby="password-error"
         #passwordField="ngModel"
       />
-      <div class="error-message" *ngIf="passwordField.invalid && passwordField.touched">
+      <div
+        id="password-error"
+        class="error-message"
+        *ngIf="passwordField.invalid && passwordField.touched"
+        role="alert"
+        aria-live="assertive"
+      >
         Password is required.
       </div>
     </div>
@@ -34,11 +54,19 @@
       type="submit"
       [disabled]="loginForm.invalid"
       [class.disabled-btn]="loginForm.invalid"
+      [attr.aria-disabled]="loginForm.invalid ? 'true' : 'false'"
     >
       Login
     </button>
 
-    <div *ngIf="errorMessage" class="error-message">
+    <div
+      *ngIf="errorMessage"
+      class="error-message"
+      id="login-error"
+      role="alert"
+      aria-live="assertive"
+      tabindex="0"
+    >
       {{ errorMessage }}
     </div>
   </form>

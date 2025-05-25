@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+
 /**
  * Handles new user registration by storing user credentials locally.
  */
@@ -10,7 +11,7 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './signup.component.html',
-  styleUrl: './signup.component.css'
+  styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
   /** Username to register */
@@ -20,13 +21,14 @@ export class SignupComponent {
   password = '';
 
   constructor(private router: Router) {}
+
   /**
    * Saves new user credentials to local storage and navigates to login.
    */
   onSignup(): void {
     const user = { username: this.username, password: this.password };
     localStorage.setItem('user', JSON.stringify(user));
-    alert('Account created successfully!');
+    alert('Signup successful! Please log in.');
     this.router.navigate(['/auth/login']);
   }
 }

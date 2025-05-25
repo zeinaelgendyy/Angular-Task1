@@ -10,7 +10,7 @@ import { BestsellerPipe } from '../../pipes/bestseller.pipe';
   standalone: true,
   imports: [RouterModule, CommonModule, BestsellerPipe],
   templateUrl: './book-list.component.html',
-  styleUrls: ['./book-list.component.css']
+  styleUrls: ['./book-list.component.css'],
 })
 export class BookListComponent implements OnInit {
   /** List of all books */
@@ -19,22 +19,19 @@ export class BookListComponent implements OnInit {
   /** Currently selected book */
   selectedBook?: Book;
 
-  /** Whether the books are still loading */
+  /** Loading state */
   isLoading = true;
 
   constructor(private bookService: BookService, private router: Router) {}
 
-  /**
-   * Loads all books on component initialization.
-   */
+  /** Load books when component initializes */
   ngOnInit(): void {
     this.loadBooks();
   }
 
-  /**
-   * Fetches books from the service and updates the list.
-   */
+  /** Fetches books from the service */
   loadBooks(): void {
+    this.isLoading = true;
     this.bookService.getBooks().subscribe({
       next: (data) => {
         this.books = data;
@@ -43,54 +40,36 @@ export class BookListComponent implements OnInit {
       error: (err) => {
         console.error('Failed to load books:', err);
         this.isLoading = false;
-      }
+      },
     });
   }
 
-  /**
-   * Opens detail view for a selected book.
-   * @param book The book to show details for
-   */
+  /** Show details modal for the selected book */
   openDetails(book: Book): void {
     this.selectedBook = book;
   }
 
-  /**
-   * Closes the detail view.
-   */
+  /** Close the details modal */
   closeDetails(): void {
     this.selectedBook = undefined;
   }
 
-  /**
-   * Navigates to the book add form.
-   */
+  /** Navigate to Add Book page */
   onAdd(): void {
     this.router.navigate(['/books/add']);
   }
 
-  /**
-   * Navigates to the book edit form.
-   * @param book The book to edit
-   */
+  /** Navigate to Edit Book page */
   onEdit(book: Book): void {
     this.router.navigate(['/books/edit', book.id]);
   }
 
-  /**
-   * Deletes a book by ID after user confirmation.
-   * @param bookId The ID of the book to delete
-   */
+  /** Delete book with confirmation */
   onDelete(bookId: number): void {
     if (confirm('Are you sure you want to delete this book?')) {
       this.bookService.deleteBook(bookId).subscribe({
-        next: () => {
-          console.log('Book deleted successfully');
-          this.loadBooks();
-        },
-        error: (err) => {
-          console.error('Failed to delete book:', err);
-        }
+        next: () => this.loadBooks(),
+        error: (err) => alert('Delete failed: ' + err.message),
       });
     }
   }

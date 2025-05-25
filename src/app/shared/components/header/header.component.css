@@ -36,10 +36,19 @@
   font-size: 0.95rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  outline-offset: 3px; 
 }
 
-.signout-btn:hover {
+.signout-btn:hover,
+.signout-btn:focus {
   background-color: #b89f27;
+  outline: 3px solid #fff; 
+  outline-offset: 3px;
+}
+
+.signout-btn:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
 }
 
 .header-image img {

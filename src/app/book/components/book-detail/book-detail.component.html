@@ -1,23 +1,26 @@
-<ng-container *ngIf="book; else loading">
-  <div class="book-card">
-    <div class="book-image-wrapper">
-      <img [src]="book.imageUrl" [alt]="book.title" class="book-image" />
-    </div>
-    <div class="book-info">
-      <h1 class="book-title">{{ book.title | bestseller }}</h1>
-      <p class="book-author">by {{ book.author }}</p>
+<main *ngIf="book; else loading" class="book-card" role="main" aria-label="Book Details">
+  <!-- Book cover image with descriptive alt text -->
+  <section class="book-image-wrapper" aria-label="Book cover image">
+    <img [src]="book.imageUrl" [alt]="'Cover image of ' + book.title" class="book-image" />
+  </section>
 
-      <div class="book-meta">
-        <span class="chip">{{ book.genre }}</span>
-        <span class="chip">{{ book.year }}</span>
-        <span class="chip price">{{ book.price | currency:'USD' }}</span>
-      </div>
+  <section class="book-info">
+    <!-- Single h1 per page for main heading -->
+    <h1 class="book-title">{{ book.title | bestseller }}</h1>
+    <p class="book-author">by {{ book.author }}</p>
 
-      <p class="book-description">{{ book.description }}</p>
+    <div class="book-meta" role="list" aria-label="Book metadata">
+      <span class="chip" role="listitem">{{ book.genre }}</span>
+      <span class="chip" role="listitem">{{ book.year }}</span>
+      <span class="chip price" role="listitem">{{ book.price | currency:'USD' }}</span>
     </div>
-  </div>
-</ng-container>
+
+    <p class="book-description">{{ book.description }}</p>
+  </section>
+</main>
 
 <ng-template #loading>
-  <div class="loading">📚 Loading book details...</div>
+  <div class="loading" aria-live="polite" role="status">
+    📚 Loading book details...
+  </div>
 </ng-template>

@@ -1,0 +1,16 @@
+@use './variables' as variables;
+
+.error-message {
+    color: variables.$danger-color;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  

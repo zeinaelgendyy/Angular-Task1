@@ -1,18 +1,18 @@
 .auth-container {
   width: 100%;
-  max-width: 25rem; 
-  margin: 5rem auto; 
-  padding: 1.875rem; 
+  max-width: 25rem;
+  margin: 5rem auto;
+  padding: 1.875rem;
   background-color: #ffffff;
-  border-radius: 1rem; 
-  box-shadow: 0 0.625rem 1.5625rem rgba(0, 0, 0, 0.08); 
+  border-radius: 1rem;
+  box-shadow: 0 0.625rem 1.5625rem rgba(0, 0, 0, 0.08);
   text-align: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 1rem;
 }
 
 .auth-container h1 {
-  margin-bottom: 1.25rem; 
+  margin-bottom: 1.25rem;
   color: #333;
   font-size: 1.5rem;
 }
@@ -25,27 +25,26 @@
 label {
   display: block;
   font-weight: 600;
-  margin-bottom: 0.375rem; 
+  margin-bottom: 0.375rem;
   color: #333;
 }
 
 input {
   width: 100%;
-  padding: 0.625rem 0.875rem; 
+  padding: 0.625rem 0.875rem;
   border: 1px solid #ccc;
   border-radius: 0.5rem;
   font-size: 0.875rem;
   box-sizing: border-box;
 }
-
-input:focus {
-  outline: 3px solid #4f46e5; 
+input:focus-visible {
+  outline: 3px solid #4f46e5;
   outline-offset: 2px;
 }
 
 button {
   width: 100%;
-  padding: 0.75rem; /* 12px */
+  padding: 0.75rem;
   background-color: #4f46e5;
   color: white;
   border: none;
@@ -55,14 +54,9 @@ button {
   cursor: pointer;
   transition: background 0.3s;
 }
-
-button:hover:not(:disabled) {
+button:hover:not(:disabled), button:focus-visible {
   background-color: #4338ca;
-}
-
-button:focus-visible {
-  outline: 3px solid #4338ca;
-  outline-offset: 2px;
+  outline: none;
 }
 
 button:disabled,
@@ -74,7 +68,7 @@ button:disabled,
 
 .error-message {
   color: #dc2626;
-  font-size: 0.8125rem; 
+  font-size: 0.8125rem;
   margin-top: 0.375rem;
 }
 
@@ -88,3 +82,7 @@ button:disabled,
   text-decoration: none;
   font-weight: 500;
 }
+.form-footer a:hover, .form-footer a:focus-visible {
+  text-decoration: underline;
+  outline: none;
+}/*# sourceMappingURL=login.component.css.map */

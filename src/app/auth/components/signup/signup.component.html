@@ -58,9 +58,21 @@
     >
       Sign Up
     </button>
+
+    <div
+      *ngIf="errorMessage"
+      class="error-message"
+      id="signup-error"
+      role="alert"
+      aria-live="assertive"
+      tabindex="0"
+    >
+      {{ errorMessage }}
+    </div>
   </form>
 
   <p class="form-footer">
-    Already have an account? <a routerLink="/auth/login">Log in here</a>
+    Already have an account?
+    <a routerLink="/auth/login">Log in here</a>
   </p>
 </div>

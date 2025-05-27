@@ -10,7 +10,7 @@ import { Book } from '../../book.model';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, RouterModule],
   templateUrl: './book-form.component.html',
-  styleUrls: ['./book-form.component.css']
+  styleUrls: ['./book-form.component.scss']
 })
 export class BookFormComponent implements OnInit {
   form!: FormGroup;

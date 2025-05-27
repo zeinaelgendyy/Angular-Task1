@@ -6,7 +6,7 @@
   padding: 0.75rem 1.5rem;
   border-bottom: 1px solid #e0c97c;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
-  font-family: "Segoe UI", "Roboto", sans-serif;
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
 }
 
 .logo {
@@ -37,18 +37,19 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
   outline-offset: 3px;
-}
-.signout-btn:hover, .signout-btn:focus-visible {
-  background-color: #b89f27;
-  outline: 3px solid #fff;
-  outline-offset: 3px;
+
+  &:hover,
+  &:focus-visible {
+    background-color: #b89f27;
+    outline: 3px solid #fff;
+    outline-offset: 3px;
+  }
 }
 
 .header-image img {
   width: 100%;
   height: auto;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   max-height: 300px;
 }
 
@@ -65,4 +66,4 @@ h1 {
 h1 span {
   font-size: 3rem;
   color: #d1b52f;
-}/*# sourceMappingURL=header.component.css.map */
+}

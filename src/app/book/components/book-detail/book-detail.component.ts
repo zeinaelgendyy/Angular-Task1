@@ -12,7 +12,7 @@ import { BestsellerPipe } from '../../pipes/bestseller.pipe';
   standalone: true,
   imports: [RouterModule, CommonModule, BestsellerPipe],
   templateUrl: './book-detail.component.html',
-  styleUrls: ['./book-detail.component.css'], // corrected property name
+  styleUrls: ['./book-detail.component.scss'], 
 })
 export class BookDetailComponent implements OnInit {
   /** The book to display */

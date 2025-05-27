@@ -12,7 +12,7 @@ import { filter } from 'rxjs/operators';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
   /** Determines whether to show the header based on current route */
@@ -25,7 +25,6 @@ export class HeaderComponent {
         this.isAuthPage = this.router.url === '/auth/login' || this.router.url === '/auth/signup';
       });
   }
-
   /**
    * Logs out the user and navigates to login page.
    */

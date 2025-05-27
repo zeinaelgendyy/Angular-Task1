@@ -1,0 +1,14 @@
+@use './variables' as variables;
+@use './mixins' as mixins;
+
+.button-primary {
+  @include mixins.button(variables.$primary-color);
+}
+
+.button-success {
+  @include mixins.button(variables.$success-color);
+}
+
+.button-danger {
+  @include mixins.button(variables.$danger-color);
+}

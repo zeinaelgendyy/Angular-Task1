@@ -10,7 +10,7 @@ import { BestsellerPipe } from '../../pipes/bestseller.pipe';
   standalone: true,
   imports: [RouterModule, CommonModule, BestsellerPipe],
   templateUrl: './book-list.component.html',
-  styleUrls: ['./book-list.component.css'],
+  styleUrls: ['./book-list.component.scss'],
 })
 export class BookListComponent implements OnInit {
   /** List of all books */

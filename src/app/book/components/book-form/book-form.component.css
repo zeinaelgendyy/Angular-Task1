@@ -34,7 +34,7 @@
 }
 
 .full-width {
-  grid-column: 1 / -1;
+  grid-column: 1/-1;
 }
 
 .form-group label {
@@ -103,4 +103,4 @@
 
 .btn-delete:hover {
   background-color: #c0392b;
-}
+}/*# sourceMappingURL=book-form.component.css.map */
